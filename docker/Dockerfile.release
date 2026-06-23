@@ -1,0 +1,38 @@
+# IronScope release image with the binary and runtime assets.
+#
+# Build: docker build -f docker/Dockerfile.release -t ironscope:v0.1.0-alpha .
+# Runtime assets are installed under /usr/share/ironscope.
+#
+# This image is a packaging convenience, not a sandbox. Real monitoring and
+# enforcement still require host privileges, host pid/proc/sys access, BPF LSM,
+# and a target process matching a packaged CPython contract.
+
+FROM rust:1.96-bookworm AS builder
+WORKDIR /build
+
+RUN apt-get update && \
+    apt-get install -y --no-install-recommends \
+      ca-certificates \
+      clang \
+      libclang-dev \
+      libbpf-dev \
+      llvm \
+      pkg-config \
+      zlib1g-dev && \
+    rm -rf /var/lib/apt/lists/*
+
+RUN rustup toolchain install nightly --profile minimal --component rust-src && \
+    cargo +nightly install bpf-linker --locked
+
+COPY . .
+RUN cargo build --release --locked
+
+FROM debian:bookworm-slim
+RUN apt-get update && \
+    apt-get install -y --no-install-recommends ca-certificates && \
+    rm -rf /var/lib/apt/lists/*
+COPY --from=builder /build/target/release/ironscope /usr/bin/ironscope
+COPY --from=builder /build/tools/python-contracts /usr/share/ironscope/python-contracts
+COPY --from=builder /build/tools/rules/framework_rules.yaml /usr/share/ironscope/rules/framework_rules.yaml
+COPY --from=builder /build/examples/policies /usr/share/ironscope/examples/policies
+ENTRYPOINT ["/usr/bin/ironscope"]

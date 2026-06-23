@@ -1,0 +1,19 @@
+[package]
+name = "ironscope-common"
+version = "0.1.0"
+edition = "2021"
+license = "Apache-2.0"
+
+[features]
+default = ["userspace"]
+userspace = ["aya"]
+
+[dependencies]
+cfg-if = { workspace = true }
+paste = { workspace = true }
+aya = { workspace = true, optional = true }
+aya-ebpf = { workspace = true }
+
+[build-dependencies]
+bindgen = { workspace = true }
+which = { workspace = true }

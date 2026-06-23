@@ -1,0 +1,74 @@
+# Enforce policy for examples/langgraph_tool_execution_daemon.py.
+# Replace pid with the daemon process PID before running IronScope.
+ironscope:
+  agents:
+    - name: langgraph-tool-execution-demo
+      pid: 12345
+
+  unknown_tool_policy: allow
+  resolver_error_policy: deny
+  agent_child_scope: protect_only_tool_children
+  default_tool_policy: allow
+
+  tools:
+    - name: read_file
+      fs:
+        deny:
+          - /tmp/ironscope_demo_read_secret.txt
+
+    - name: shell
+      exec:
+        deny:
+          - /usr/bin/id
+
+    - name: write_note
+      fs:
+        deny:
+          - /etc/passwd
+          - /etc/shadow
+
+    - name: async_inner
+      fs:
+        deny:
+          - /tmp/ironscope_demo_async_inner_secret.txt
+
+    - name: async_outer
+      fs:
+        deny:
+          - /tmp/ironscope_demo_async_outer_secret.txt
+
+    - name: async_parallel_a
+      fs:
+        deny:
+          - /tmp/ironscope_demo_parallel_a_secret.txt
+
+    - name: async_parallel_b
+      fs:
+        deny:
+          - /tmp/ironscope_demo_parallel_b_secret.txt
+
+    - name: async_cancelled
+
+    - name: async_exception
+
+    - name: threadpool_reader
+      fs:
+        deny:
+          - /tmp/ironscope_demo_threadpool_secret.txt
+
+    - name: threading_reader
+      fs:
+        deny:
+          - /tmp/ironscope_demo_threading_secret.txt
+
+    - name: asyncio_to_thread_reader
+      fs:
+        deny:
+          - /tmp/ironscope_demo_to_thread_secret.txt
+
+    - name: background_popen
+      fs:
+        deny:
+          - /tmp/ironscope_demo_background_secret.txt
+
+  mode: enforce

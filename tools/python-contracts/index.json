@@ -1,0 +1,17 @@
+{
+  "version": 1,
+  "contracts": [
+    {
+      "path": "cpython-3.12.3-aarch64-f44e82bd43207357844bfae18cf0460f0825d1ae.json",
+      "python_build_id": "f44e82bd43207357844bfae18cf0460f0825d1ae",
+      "asyncio_build_id": "dca438e68b98c0ab4c93e124abd41ae37fe6d966",
+      "arch": "aarch64",
+      "python_version": "3.12.3"
+    }
+  ],
+  "offsets": {
+    "PyObject": {
+      "ob_type": 8
+    }
+  }
+}

@@ -1,0 +1,130 @@
+{
+  "libpython": {
+    "path": "/usr/bin/python3.12",
+    "build_id": "f44e82bd43207357844bfae18cf0460f0825d1ae",
+    "build_id_fallback_sha256": "",
+    "elf_class": "ELFCLASS64",
+    "arch": "aarch64",
+    "note": "python3 binary has libpython statically linked; uprobe symbols resolve against this binary"
+  },
+  "libpython_shared": {
+    "path": "/usr/lib/aarch64-linux-gnu/libpython3.12.so.1.0",
+    "build_id": "8b9c2599a2b98f62e81733fb01dba5edba641bcb",
+    "note": "shared libpython exists but is not used by the python3 process; listed for reference"
+  },
+  "asyncio_module": {
+    "path": "/usr/lib/python3.12/lib-dynload/_asyncio.cpython-312-aarch64-linux-gnu.so",
+    "build_id": "dca438e68b98c0ab4c93e124abd41ae37fe6d966"
+  },
+  "python_binary": {
+    "path": "/usr/bin/python3.12",
+    "build_id": "f44e82bd43207357844bfae18cf0460f0825d1ae"
+  },
+  "symbols": {
+    "_PyEval_EvalFrameDefault": {
+      "source": "libpython_dynsym",
+      "file_offset": 1458772,
+      "size": 50020,
+      "start_frame_file_offset": 1458920,
+      "start_frame_rel_offset": 148,
+      "frame_reg_idx": 27,
+      "end_return_value_file_offset": 1461588,
+      "end_return_value_frame_reg_idx": 27,
+      "end_return_const_file_offset": 1462008,
+      "end_return_const_frame_reg_idx": 27,
+      "end_exception_file_offset": 1459496,
+      "end_exception_frame_reg_idx": 19,
+      "resume_file_offset": 1459000,
+      "resume_offset_source": "validated-local-cpython312-aarch64-e2e",
+      "start_frame_offset_source": "validated-local-cpython312-aarch64-e2e",
+      "end_return_value_offset_source": "validated-local-cpython312-aarch64-e2e",
+      "end_return_const_offset_source": "validated-local-cpython312-aarch64-e2e",
+      "end_exception_offset_source": "validated-local-cpython312-aarch64-e2e"
+    },
+    "PyGen_Type_tp_dealloc": {
+      "source": "libpython_runtime_read",
+      "file_offset": 859300
+    },
+    "PyCoro_Type_tp_dealloc": {
+      "source": "libpython_runtime_read",
+      "file_offset": 859300
+    },
+    "PyAsyncGen_Type_tp_dealloc": {
+      "source": "libpython_runtime_read",
+      "file_offset": 859300
+    },
+    "_asyncio_Task___init___impl": {
+      "source": "callscan",
+      "file_offset": 22868
+    },
+    "task_step": {
+      "source": "callscan",
+      "file_offset": 28272
+    },
+    "task_eager_start": {
+      "source": "callscan",
+      "file_offset": 28724
+    }
+  },
+  "offsets": {
+    "PyCodeObject": {
+      "co_filename": 112,
+      "co_name": 120,
+      "co_qualname": 128,
+      "co_firstlineno": 68,
+      "co_flags": 48
+    },
+    "PyUnicodeObject": {
+      "compact_data": 40
+    },
+    "_PyInterpreterFrame": {
+      "f_executable": 0,
+      "previous": 48,
+      "owner": 70,
+      "localsplus": 72
+    },
+    "PyGenObject": {
+      "gi_frame_state": 67,
+      "gi_iframe": 72
+    },
+    "TaskObj": {
+      "task_state": 88,
+      "task_coro": 136,
+      "task_result": 64
+    },
+    "PyThreadObject": {
+      "name": 0,
+      "ident": 0,
+      "target": 0
+    },
+    "PyObject": {
+      "ob_type": 8
+    }
+  },
+  "frame_state_values": {
+    "CREATED": -2,
+    "SUSPENDED": -1,
+    "EXECUTING": 0,
+    "COMPLETED": 1
+  },
+  "task_state_values": {
+    "PENDING": 0,
+    "CANCELLED": 1,
+    "FINISHED": 2
+  },
+  "classifier_rules_file": "../tools/rules/framework_rules.yaml",
+  "contract_version": 2,
+  "generated_ns": 1776980595157832253,
+  "python": {
+    "implementation": "cpython",
+    "version": "3.12.3",
+    "arch": "aarch64",
+    "build_id": "f44e82bd43207357844bfae18cf0460f0825d1ae",
+    "sha256_fallback": ""
+  },
+  "verification": {
+    "state": "verified",
+    "verifier": "ironscope-local-e2e-cpython-3.12.3-aarch64",
+    "verified_ns": 1776980595157832253
+  }
+}

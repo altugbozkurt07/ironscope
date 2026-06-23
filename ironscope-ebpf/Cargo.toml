@@ -1,0 +1,17 @@
+[package]
+name = "ironscope-ebpf"
+version = "0.1.0"
+edition = "2021"
+license = "Apache-2.0"
+
+[[bin]]
+name = "ironscope"
+path = "src/main.rs"
+
+[dependencies]
+ironscope-common = { path = "../ironscope-common", default-features = false }
+aya-ebpf = { workspace = true }
+aya-log-ebpf = { workspace = true }
+
+[build-dependencies]
+which = { workspace = true }

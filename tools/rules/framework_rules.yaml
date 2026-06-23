@@ -1,0 +1,21 @@
+rules:
+  - qualname: "BaseTool.run"
+    kind: 4   # TOOL_ROOT_LC (LangChain sync)
+    extractor_kind: 1  # SLOT_OBJ
+    slot: 0
+  - qualname: "BaseTool.arun"
+    kind: 4   # TOOL_ROOT_LC (LangChain async)
+    extractor_kind: 1  # SLOT_OBJ
+    slot: 0
+  - qualname: "ToolNode._arun_one"
+    kind: 1   # TOOL_ROOT_LG (LangGraph)
+  - qualname: "_WorkItem.__init__"
+    kind: 20  # WORKITEM_CTOR
+  - qualname: "_WorkItem.run"
+    kind: 21  # WORKITEM_RUN
+  - qualname: "Thread.__init__"
+    kind: 22  # THREAD_CTOR
+  - qualname: "Thread.run"
+    kind: 23  # THREAD_RUN
+  - qualname: "_worker"
+    kind: 24  # THREADPOOL_WORKER

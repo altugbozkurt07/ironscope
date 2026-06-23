@@ -1,0 +1,34 @@
+[workspace]
+resolver = "2"
+members = ["ironscope", "ironscope-common", "ironscope-ebpf"]
+default-members = ["ironscope", "ironscope-common"]
+
+[workspace.dependencies]
+aya = { version = "0.13.1", default-features = false }
+aya-build = { version = "0.1.3", default-features = false }
+aya-ebpf = { version = "0.1.1", default-features = false }
+aya-log = { version = "0.2.1", default-features = false }
+aya-log-ebpf = { version = "0.1.0", default-features = false }
+
+anyhow = "1"
+clap = { version = "4.5", default-features = false, features = ["std", "derive", "help", "usage", "error-context", "suggestions"] }
+env_logger = { version = "0.11", default-features = false }
+libc = { version = "0.2", default-features = false }
+log = { version = "0.4", default-features = false }
+tokio = { version = "1", default-features = false, features = ["macros", "rt-multi-thread", "signal", "io-util", "time", "sync"] }
+serde = { version = "1", default-features = false, features = ["derive"] }
+serde_json = { version = "1", default-features = false, features = ["std"] }
+serde_yaml = { version = "0.9", default-features = false }
+flate2 = { version = "1", default-features = false, features = ["zlib"] }
+hpack = "0.3.0"
+thiserror = "2"
+goblin = "0.9"
+bindgen = { version = "0.70", features = ["runtime"] }
+cfg-if = { version = "1", default-features = false }
+paste = { version = "1", default-features = false }
+which = { version = "6", default-features = false }
+nix = { version = "0.29", features = ["user", "net"] }
+
+[profile.release.package.ironscope-ebpf]
+debug = 2
+codegen-units = 1

@@ -1,0 +1,16 @@
+ironscope:
+  agents:
+    - pid: 12345  # replace with the agent process PID
+
+  unknown_tool_policy: deny
+  resolver_error_policy: deny
+  agent_child_scope: protect_only_tool_children
+  default_tool_policy: allow
+
+  tools:
+    - name: read_file
+      fs:
+        deny:
+          - /etc/passwd
+
+  mode: enforce

@@ -1,0 +1,35 @@
+# Secrets and local environment
+.env
+.env.*
+!.env.example
+
+# Rust build output
+/target/
+**/target/
+
+# Python virtual environments and caches
+.venv/
+.venv-*/
+**/.venv/
+**/.venv-*/
+__pycache__/
+**/__pycache__/
+*.py[cod]
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+
+# Local editor/assistant state
+.claude/
+.codex/
+
+# Generated archives and logs
+*.zip
+*.tar
+*.tar.gz
+*.log
+
+# OS/editor noise
+.DS_Store
+.idea/
+.vscode/

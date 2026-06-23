@@ -1,0 +1,29 @@
+[package]
+name = "ironscope"
+version = "0.1.0"
+edition = "2021"
+license = "Apache-2.0"
+
+[dependencies]
+ironscope-common = { path = "../ironscope-common" }
+aya = { workspace = true }
+aya-log = { workspace = true }
+anyhow = { workspace = true }
+clap = { workspace = true }
+env_logger = { workspace = true }
+goblin = { workspace = true }
+libc = { workspace = true }
+log = { workspace = true }
+nix = { workspace = true }
+serde = { workspace = true }
+serde_json = { workspace = true }
+serde_yaml = { workspace = true }
+thiserror = { workspace = true }
+tokio = { workspace = true }
+
+[dev-dependencies]
+nix = { workspace = true }
+
+
+[build-dependencies]
+aya-build = { workspace = true }
